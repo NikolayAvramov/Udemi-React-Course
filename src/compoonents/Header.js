@@ -15,7 +15,7 @@ export function Header() {
 						ComplexApp{" "}
 					</Link>
 				</h4>
-				{logedIn ? <UserHeader /> : <LogginForm setLoggedIn={setLoggedIn} />}
+				{logedIn ? <UserHeader setLoggedIn={setLoggedIn} /> : <LogginForm setLoggedIn={setLoggedIn} />}
 			</div>
 		</header>
 	);

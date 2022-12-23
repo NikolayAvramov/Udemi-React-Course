@@ -1,4 +1,3 @@
-//import Axios from "axios";
 import {Header} from "./compoonents/Header.js";
 import {HomeGuest} from "./compoonents/HoumeGuest.js";
 import {Footer} from "./compoonents/Footer.js";

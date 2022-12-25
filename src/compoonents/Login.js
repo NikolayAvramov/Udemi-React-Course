@@ -9,7 +9,9 @@ export function LogginForm(props) {
 		try {
 			const response = await Axios.post("http://localhost:8080/login", {username, password});
 			if (response.data) {
-				console.log(response.data);
+				sessionStorage.setItem("userToken", response.data.token);
+				sessionStorage.setItem("userName", response.data.username);
+				sessionStorage.setItem("userAvatar", response.data.avatar);
 				props.setLoggedIn(true);
 			} else {
 				console.log("Incorrect username or password.");

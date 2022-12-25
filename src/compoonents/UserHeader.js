@@ -1,6 +1,9 @@
 export function UserHeader(props) {
 	function logout() {
 		props.setLoggedIn(false);
+		sessionStorage.removeItem("userToken");
+		sessionStorage.removeItem("userName");
+		sessionStorage.removeItem("userAvatar");
 	}
 
 	return (
@@ -13,7 +16,7 @@ export function UserHeader(props) {
 				<span className="chat-count-badge text-white"> </span>
 			</span>
 			<a href="#" className="mr-2">
-				<img className="small-header-avatar" src="https://gravatar.com/avatar/b9408a09298632b5151200f3449434ef?s=128" />
+				<img className="small-header-avatar" src={sessionStorage.getItem("userAvatar")} />
 			</a>
 			<a className="btn btn-sm btn-success mr-2" href="/create-post">
 				Create Post

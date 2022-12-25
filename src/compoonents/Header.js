@@ -3,9 +3,7 @@ import {LogginForm} from "./Login.js";
 import {UserHeader} from "./UserHeader.js";
 import {useState} from "react";
 
-export function Header() {
-	const [logedIn, setLoggedIn] = useState();
-
+export function Header(props) {
 	return (
 		<header className="header-bar bg-primary mb-3">
 			<div className="container d-flex flex-column flex-md-row align-items-center p-3">
@@ -15,7 +13,7 @@ export function Header() {
 						ComplexApp{" "}
 					</Link>
 				</h4>
-				{logedIn ? <UserHeader setLoggedIn={setLoggedIn} /> : <LogginForm setLoggedIn={setLoggedIn} />}
+				{props.logedIn ? <UserHeader setLoggedIn={props.setLoggedIn} /> : <LogginForm setLoggedIn={props.setLoggedIn} />}
 			</div>
 		</header>
 	);

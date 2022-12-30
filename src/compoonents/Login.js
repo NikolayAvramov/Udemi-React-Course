@@ -1,18 +1,17 @@
-import {useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import Axios from "axios";
+import {DispatchContext} from "../DispatchContext.js";
 export function LogginForm(props) {
 	const [username, setUsername] = useState();
 	const [password, setPassword] = useState();
+	const appDispatch = useContext(DispatchContext);
 
 	async function login(e) {
 		e.preventDefault();
 		try {
 			const response = await Axios.post("http://localhost:8080/login", {username, password});
 			if (response.data) {
-				sessionStorage.setItem("userToken", response.data.token);
-				sessionStorage.setItem("userName", response.data.username);
-				sessionStorage.setItem("userAvatar", response.data.avatar);
-				props.setLoggedIn(true);
+				appDispatch({type: "login", data: response.data});
 			} else {
 				console.log("Incorrect username or password.");
 			}
